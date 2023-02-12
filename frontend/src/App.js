@@ -11,18 +11,17 @@ import ProfileScreen from './screens/ProfileScreen/ProfileScreen'
 
 function App() {
   return (
-    <div className='main'>
+    <div>
       <Router>
         <Background />
         <div className='nav-wrapper'>
           <Navbar />
-        </div>
+         <LoginScreen />
         <Routes>
-          <Route path='/' element={ <HomeScreen />} />
-          <Route path='/login' element={ <LoginScreen /> } />
           <Route path='/register' element={ <RegisterScreen /> } />
           <Route path='/profile' element={ <ProfileScreen /> } />
         </Routes>
+        </div>
       </Router>
       <ToastContainer />
     </div>

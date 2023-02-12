@@ -37,11 +37,6 @@ code {
   height: 100%;
   object-fit: cover;
 }
-.main{
-  margin-top: 7rem;
- display: flex;
- justify-content: center;
-}
 .wrapper{
   position: relative;
   z-index: 0;
@@ -50,57 +45,32 @@ code {
 .logo{
   padding-left: 20px;
 }
-.profile{
+.menu{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
   padding-right: 20px;
 }
-.profile ul{
+.menu ul{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
-.profile li{
+.menu li{
   list-style: none;
 }
-.profile a{
+.menu a{
   text-decoration: none;
   color: #918F8E;
   font-weight: bold;
 }
-.avatar{
-  width: 40px;
-  height: 40px;
-}
-.avatar img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-.navbar{
-  position: fixed;
-  top: 13px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1339px;
-  width: 100%;
-  height: 44px;
-}
 .nav-wrapper{
-  position: fixed;
-  top: 0;
-  height: 70px;
-  width: 100%;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
 }
 .content{
   position: relative;

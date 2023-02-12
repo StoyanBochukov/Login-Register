@@ -1,4 +1,21 @@
-
+form{
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: 350px;
+  border: 1px solid red;
+}
+input{
+  padding: 10px;
+  margin: 5px;
+}
+button{
+  background-color: #F68C0B;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #fff;
+}
 .formHeading {
     font-size: 2rem;
     font-weight: 700;
