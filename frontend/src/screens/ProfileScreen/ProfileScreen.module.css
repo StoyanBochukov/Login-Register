@@ -1,17 +1,20 @@
 .wrapper{
     position: relative;
     z-index: 0;
-    width: 838px;
+    width: 1200px;
+    height: 100%;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #fff;
 }
 .profile{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-}
-.profileDetails{
-    width: 400px;
+    width: 100%;
+    height: 100%;
 }
 
 .profileHeading h1{
@@ -55,14 +58,5 @@
 .imageInput input[type=text]{
     width: 100%;
     height: 30px;
-    /* border: none; */
     border-radius: 0;
-}
-.imageInput input[type=file]{
-    width: 100%;
-    height: 30px;
-    font-size: 18px;
-    background-color: #fff;
-    border-radius: 0;
-    padding: 10px;
 }

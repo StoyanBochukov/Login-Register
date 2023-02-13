@@ -37,11 +37,6 @@ code {
   height: 100%;
   object-fit: cover;
 }
-.wrapper{
-  position: relative;
-  z-index: 0;
-  width: 838px;
-}
 .logo{
   padding-left: 20px;
 }

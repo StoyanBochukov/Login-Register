@@ -16,10 +16,10 @@ const generateToken = (id, firstName) => {
 //route /api/users
 //access public
 const registerUser = asyncHandler( async(req, res) => {
-    const { firstName, lastName, email, password, image, position } = req.body
+    const { firstName, lastName, DoB, country, email, password, image, position } = req.body
 
     //Validation
-    if(!firstName || !lastName || !email || !password){
+    if(!firstName || !lastName || !email || !DoB || !country || !password){
         res.status(400)
         throw new Error('Please include all fields')
     }
@@ -37,6 +37,8 @@ const registerUser = asyncHandler( async(req, res) => {
     const user = await User.create({
         firstName,
         lastName,
+        DoB,
+        country,
         email,
         password: hashedPassword,
         position,
@@ -47,6 +49,8 @@ const registerUser = asyncHandler( async(req, res) => {
             _id: user._id,
             firstName: user.firstName,
             lastName: user.lastName,
+            DoB: user.DoB,
+            country: user.country,
             email: user.email,
             position:user.position,
             image: user.image,
@@ -72,6 +76,8 @@ const loginUser = asyncHandler( async(req, res) => {
             _id: user._id,
             firstName: user.firstName,
             lastName: user.lastName,
+            DoB: user.DoB,
+            country: user.country,
             position: user.position,
             email: user.email,
             image: user.image,
@@ -103,6 +109,8 @@ const updateUserProfile = asyncHandler( async(req, res) =>{
     if(user){
         user.firstName = req.body.firstName || user.firstName
         user.lastName = req.body.lastName || user.lastName
+        user.DoB = req.body.DoB || user.DoB
+        user.country = req.body.country || user.country
         user.position = req.body.position || user.position
         if(req.body.email){
             user.email = req.body.email

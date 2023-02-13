@@ -24,7 +24,7 @@ const LoginScreen = () => {
             toast.error(message)
         }
         if(isSuccess || user){
-            navigate('/')
+            navigate('/profile')
         }
         dispatch(reset())
     }, [isError, isSuccess, user, message, dispatch, navigate])

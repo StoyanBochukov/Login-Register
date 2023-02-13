@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Form, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { FaUser, FaImages } from 'react-icons/fa'
 import { userUpdate, reset } from '../../redux/auth/authSlice'
 import classes from './ProfileScreen.module.css'
 import { toast } from 'react-toastify'
-import axios from 'axios'
+
 
 const ProfileScreen = () => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
+  const [DoB, setDoB] = useState('')
+  const [country, setCountry] = useState('')
   const [position, setPosition] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [image, setImage] = useState('')
-  const [file, setFile] = useState('')
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -29,6 +30,9 @@ const ProfileScreen = () => {
       } else {
         setFirstName(user.firstName)
         setLastName(user.lastName)
+        setDoB(user.DoB)
+        setCountry(user.country)
+        setPosition(user.position)
       }
     }
   }, [dispatch, navigate, user])
@@ -40,6 +44,8 @@ const ProfileScreen = () => {
       id: user._id,
       firstName,
       lastName,
+      DoB,
+      country,
       position,
       email,
       password,
@@ -48,37 +54,12 @@ const ProfileScreen = () => {
     dispatch(userUpdate(userData))
     setEmail('')
     setImage('')
-    setPosition(user.position)
     if(isSuccess){
       toast.success('Profile Updated')
     }
   }
 
-  const onChange = async(e) => {
-    // setFile(e.target.files[0])
-    // const formData = new FormData()
-    // formData.append('file', file)
-
-    // try {
-    //   const res = await axios.post('/uploads', formData, {
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data'
-    //     }
-    //   })
-
-    //   const { fileName, filePath } = res.data
-    //   setUploadedFile({
-    //     fileName,
-    //     filePath
-    //   })
-    // } catch (error) {
-    //   if(error.response.status === 500){
-    //     console.log('There was a problem with the server')
-    //   }else{
-    //     console.log(error.response.data.msg)
-    //   }
-    // }
-  }
+  
 
   return (
     <div className={classes.wrapper}>
@@ -107,6 +88,20 @@ const ProfileScreen = () => {
               placeholder='Enter your surname'
               required
               onChange={(e) => setLastName(e.target.value)}
+            />
+            <input
+              type='text'
+              value={DoB}
+              placeholder='Enter your date of birth'
+              required
+              onChange={(e) => setDoB(e.target.value)}
+            />
+            <input
+              type='text'
+              value={country}
+              placeholder='Enter your country'
+              required
+              onChange={(e) => setCountry(e.target.value)}
             />
             <input
               type='text'
@@ -151,7 +146,6 @@ const ProfileScreen = () => {
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               />
-              <input type='file' onChange={onChange}/>
             </div>
           </form>
         </div>
