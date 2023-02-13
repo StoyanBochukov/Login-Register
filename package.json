@@ -1,7 +1,7 @@
 {
-  "name": "hacksoft",
+  "name": "login_app",
   "version": "1.0.0",
-  "description": "Message System",
+  "description": "register and login",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
